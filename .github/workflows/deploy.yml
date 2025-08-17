@@ -32,7 +32,7 @@ jobs:
 
     - name: Terraform Plan
       id: plan
-      run: terraform plan
+      run: terraform plan -out=tfplan
 
   apply:
     if:
@@ -54,13 +54,6 @@ jobs:
       id: init
       run: terraform init --reconfigure
 
-    - name: Terraform Validate
-      id: validate
-      run: terraform validate
-
-    - name: Terraform Plan
-      id: plan
-      run: terraform plan
 
     - name: terraform apply
       id: apply
