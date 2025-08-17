@@ -1,12 +1,14 @@
 name: Deploy azure code through terraform and github action
 
 on:
-  push:
+  pull_request:
     branches:
       - main
 
 jobs:
   build:
+    if:
+       github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
@@ -35,3 +37,4 @@ jobs:
     - name: terraform apply
       id: apply
       run: terraform apply --auto-approve
+
