@@ -8,7 +8,7 @@ on:
       - main
 
 jobs:
-  plan:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -49,6 +49,9 @@ jobs:
 
     - name: install terraform
       uses: hashicorp/setup-terraform@v2
+
+    - name: wait time added
+      run: sleep 60
 
     - name: Terraform Init
       id: init
