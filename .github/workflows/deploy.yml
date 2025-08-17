@@ -13,7 +13,7 @@ on:
 jobs:
   plan:
     if:
-       github.event_name == 'pull request'
+       github.event_name == 'pull request' && github.event.action == 'opened'
     runs-on: ubuntu-latest
 
     steps:
