@@ -2,8 +2,6 @@ name: Deploy azure code through terraform and github action
 
 on:
   pull_request:
-    branches:
-      - main
 
   push:
     branches:
@@ -11,8 +9,6 @@ on:
 
 jobs:
   plan:
-    if:
-       github.event_name == 'pull request'
     runs-on: ubuntu-latest
 
     steps:

@@ -1,6 +1,5 @@
 data "azurerm_resource_group" "rg" {
   name = var.rg
-
 }
 
 resource "azurerm_virtual_network" "example" {
