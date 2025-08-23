@@ -1,6 +1,5 @@
 data "azurerm_resource_group" "rg" {
   name = var.rg
-
 }
 
 resource "azurerm_virtual_network" "example" {
@@ -51,5 +50,16 @@ resource "azurerm_linux_virtual_machine" "example" {
     offer     = "0001-com-ubuntu-server-jammy"
     sku       = "22_04-lts"
     version   = "latest"
+  }
+}
+
+resource "azurerm_storage_account" "storage" {
+  name                     = "demonamefortodaysclas"
+  resource_group_name      = data.azurerm_resource_group.rg.name
+  location                 = data.azurerm_resource_group.rg.location
+  account_tier             = "Standard"
+  account_replication_type = "GRS"
+  tags = {
+    environment = "demo"
   }
 }
