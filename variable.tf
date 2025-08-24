@@ -11,7 +11,7 @@ variable "rg" {
 
 
 variable "name" {
-  default = "terraform-jenkins"
+  default = "vm4jenkins"
 }
 
 variable "size" {
